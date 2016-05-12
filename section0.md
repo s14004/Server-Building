@@ -15,6 +15,6 @@ wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | s
 1. [Vagrant公式サイト](https://www.vagrantup.com/)のDOWNLOADSページに移動
 2. LINUX(DEB)の64bitをダウンロードする
 3. ダウンロードしたファイルを端末で実行  
-     `$dpkg -i vagrant_1.7.2_x86_64.deb`
+     `$dpkg -i vagrant_1.8.1_x86_64.deb`
 4. インストール完了
 

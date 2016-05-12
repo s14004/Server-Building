@@ -1,7 +1,7 @@
 #section 1
 
 ## Centos7インストール
-1. usbからインストールする 
+1. 先生のusbからインストールする 
 
 ## VirtualBox設定
 1. virtualBoxを起動
@@ -72,11 +72,11 @@ ifcfg-enp0s8のファイルも同じようにする
    `$/etc/yum.repos.d/mysql-community.repo`  
 
     [mysql-connectors-community]  
-    enabled=1→enabled=0  
+    enabled=1をenabled=0に変更  
     [mysql-tools-community]  
-    enabled=1→enabled=0  
+    enabled=1をenabled=0に変更  
     [mysql56-community]  
-    enabled=1→enabled=0  
+    enabled=1をenabled=0に変更  
 
   3 MySQLのインストール  
    `$yum --enablerepo=mysql56-community install mysql-community-server`
@@ -108,11 +108,11 @@ ifcfg-enp0s8のファイルも同じようにする
 
 ## Wordpressのインストール
   1 Wordpressのzipファイルをインストールする  
-   `$wget https://ja.wordpress.org/wordpress-4.2.2-ja.zip`  
+   `$wget https://ja.wordpress.org/wordpress-4.5.2-ja.zip 
   2 インストールしたzipファイルを解凍する  
-   `$unzip wordpress-4.2.2-ja.zip`  
+   `$unzip wordpress-4.5.2-ja.zip`  
   3 解凍したファイルを/var/www/htmlに移動する  
-   `$mv wordpress-4.2.2-ja.zip /var/www/html`  
+   `$mv wordpress-4.5.2-ja.zip /var/www/html`  
   4 wordpressのフォルダに移動  
    `$cd /var/www/html/wordpress`  
   5 wordpressフォルダの`wp-config-sample.php`をコピーして`wp-config.php`を作成する  

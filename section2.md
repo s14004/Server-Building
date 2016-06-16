@@ -44,10 +44,9 @@
   1 PHPのインストール  
   `$sudo yum install --enablerepo=epel,remi-php70 php php-mbstring php-pear php-fpm php-mcrypt php-mysql`
   2 mariadbのインストール  
-   mariadbのインストール  
    `$sudo yum -y install mariadb mariadb-server`  
 
-  4 nginxのインストール
+  3 nginxのインストール
     `$ sudo yum -y install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
     `$yum -y install epel-release
 	`$yum install --enablerepo=nginx nginx`
@@ -55,17 +54,17 @@
     インストール  
     `$yum -y install nginx`  
 
-  5 nginxの実行と登録   
+  4 nginxの実行と登録   
 
     $systemctl start nginx  
     $systemctl enable nginx  
 
-  6 php-fpmの実行と登録  
+  5 php-fpmの実行と登録  
 
     $systemctl start php-fpm  
     $systemctl enable php-fpm  
 
-  7 ngixの設定でphp-fpmが動くようにする  
+  6 ngixの設定でphp-fpmが動くようにする  
    `$vi /etc/nginx/conf.d/default.conf`  
    下記のように編集する  
 

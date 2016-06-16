@@ -46,13 +46,13 @@
   2 mariadbのインストール  
    `$sudo yum -y install mariadb mariadb-server`  
 
-  3 nginxのインストール
+  3 nginxのインストール  
     `$ sudo yum -y install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm`  
     `$yum -y install epel-release`  
 	`$yum install --enablerepo=nginx nginx`
 
     インストール  
-    $yum -y install nginx  
+    `$yum -y install nginx`  
 
   4 nginxの実行と登録   
 
@@ -99,6 +99,7 @@
 ## 2-2 Wordpressで使うデータベースの作成
   1 Mysqlの起動  
    `$systemctl start mariadb`  
+   `$systemctl enable mariadb`
   2 MySQLを起動する  
    `$mysql -u root`  
   3 rootユーザーにパスワードを設定する  
@@ -118,10 +119,10 @@
    `$tar xzfv latest-ja.tar.gz`  
   3 所有者とグループ変更
    `$ chown -R nginx:nginx wordpress`
-  3 解凍したファイルを/usr/shard/ngix/htmlに移動する  
-   `$mv wordpress /usr/shard/ngix/html`  
+  3 解凍したファイルを/usr/share/ngix/htmlに移動する  
+   `$mv wordpress /usr/share/ngix/html`  
   4 wordpressのフォルダに移動  
-   `$cd /usr/shard/ngix/html/wordpress`  
+   `$cd /usr/share/ngix/html/wordpress`  
   5 wordpressフォルダの`wp-config-sample.php`をコピーして`wp-config.php`を作成する  
    `$cp wp-config-sample.php wp-confing.php`  
   6 コピーしたwp-config.phpの中を編集  

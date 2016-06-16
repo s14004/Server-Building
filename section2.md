@@ -52,7 +52,8 @@
 	`$yum install --enablerepo=nginx nginx`
 
     インストール  
-    `$yum -y install nginx`  
+
+     $yum -y install nginx
 
   4 nginxの実行と登録   
 

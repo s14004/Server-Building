@@ -42,17 +42,17 @@
 
 ## 2−2 Wordpressに必要なものをインストール
   1 PHPのインストール  
-  `$sudo yum install --enablerepo=epel,remi-php70 php php-mbstring php-pear php-fpm php-mcrypt php-mysql`
+  `$sudo yum install --enablerepo=epel,remi-php70 php php-mbstring php-pear php-fpm php-mcrypt php-mysql`  
   2 mariadbのインストール  
    `$sudo yum -y install mariadb mariadb-server`  
 
   3 nginxのインストール
-    `$ sudo yum -y install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-    `$yum -y install epel-release
+    `$ sudo yum -y install http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm`  
+    `$yum -y install epel-release`  
 	`$yum install --enablerepo=nginx nginx`
 
     インストール  
-    `$yum -y install nginx`  
+    $yum -y install nginx  
 
   4 nginxの実行と登録   
 

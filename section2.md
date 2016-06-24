@@ -1,4 +1,4 @@
-## 2-2 Vagrant設定
+## 2-1 Vagrant設定
 
   1 Boxの追加  
    `$vagrant box add CentOS7 コピーしたboxファイル --force`  
@@ -144,4 +144,48 @@
 
   7 ブラウザからWordpressにアクセス   
    `192.168.56.129/wordpress/wp-admin/install.php`  
+
+##2-3 Wordpressに必要なものをインストール
+  1 Apacheのインストール  
+    `$wget http://ftp.yz.yamagata-u.ac.jp/pub/network/apache//httpd/httpd-2.2.31.tar.gz`  
+  2 ファイルの解凍  
+    `$tar -xvf httpd-2.2.31.tar.gz`  
+  3 解凍したファイルに移動  
+    `$cd httpd-2.2.31`  
+  4 Apacheのインストール  
+     $./configure  
+     $make  
+     $sudo make install  
+  5 Apacheを起動
+    `$sudo /usr/local/apache2/bin/apachectl start`  
+     エラーが出るので  
+    　$sudo vi /usr/local/apache2/conf/httpd.conf　ファイルに下記を追加  
+     ServerName www.example.com:80の下に  
+     ServerName localhost:80を追加する  
+     <IfModule dir_module>  
+         DirectoryIndex index.html index.php ←index.phpを追加  
+     </IfModule>  
+     <FilesMatch "\.ph(p[2-6]?|tml)$">  
+         SetHandler application/x-httpd-php
+     </FilesMatch>  
+     追記したら  
+     sudo /usr/local/apache2/bin/apachectl restart で再起動する  
+
+##2-3 phpのインストール
+　　1 `$wget http://jp2.php.net/get/php-7.0.6.tar.bz2/from/this/mirror`  
+  2 `$tar -xvf mirrorで解凍`  
+  3 `$cd php-7.0.6/で移動`
+  4 `$sudo yum install -y libxml2 libxml2-devel`  
+    上をやったら  
+    `$./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-mysqli`  
+    `$make`  
+    `$sudo make install`
+  5 php.iniを作成  
+    `$sudo cp php.ini-development /usr/local/lib/php.ini`  
+
+##2-3 データベースのインストール
+  1 `$sudo yum -y install mariadb mariadb-devel mariadb-server`  
+  2 `$sudo systemctl start mariadbで起動`  
+  3 mariadbを起動する  
+    `$mysql -u root`  
 

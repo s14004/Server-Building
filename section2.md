@@ -156,10 +156,10 @@
      $./configure  
      $make  
      $sudo make install  
-  5 Apacheを起動
+  5 Apacheを起動  
     `$sudo /usr/local/apache2/bin/apachectl start`  
       エラーが出るので  
-    　 $sudo vi /usr/local/apache2/conf/httpd.conf　ファイルに下記を追加  
+    　$sudo vi /usr/local/apache2/conf/httpd.conf　ファイルに下記を追加  
       ServerName www.example.com:80の下に  
       ServerName localhost:80を追加する  
      `<IfModule dir_module>  
@@ -188,4 +188,37 @@
   2 `$sudo systemctl start mariadbで起動`  
   3 mariadbを起動する  
     `$mysql -u root`  
+  4 rootユーザーにパスワードを設定する  
+    `MariaDB [(none)]> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('xxxxxxxxxx');`  
+  5 exitしてrootでログイン
+    `$mysql -u root -p`  
+  6 データベースの作成  
+    `MariaDB [(none)]> CREATE DATABASE データベース名;`  
+    `MariaDB [(none)]> GRANT ALL PRIVILEGES ON データベース名.* to 'ユーザー名'@'localhost'      IDENTIFIED BY '任意パスワード';`  
+  7 `$sudo systemctl restart mariadb`で再起動
+
+##Wordpressのインストール
+  1 `$wget http://wordpress.org/latest.tar.gz`  
+  2 `$tar -xvf latest.tar.gz`で解凍  
+  3 `$sudo mv wordpress/ /usr/local/apache2/htdocs/`で移動
+  4 `$cd /usr/local/apache2/htdocs/wordpress`  
+  5 `$cp wp-config-sample.php wp-config.php`でwp-config.phpを作成  
+  
+  6 `vi wp-config.php`でwp-config.phpを編集  
+     WordPress のためのデータベース名  
+     define('DB_NAME', 'database_name_here');  
+       ↓  
+     define('DB_NAME', 'mysqlで作ったデータベース名');  
+     MySQL データベースのユーザー名  
+     define('DB_USER', 'username_here');  
+       ↓  
+     define('DB_USER', 'mysqlで作ったデータベースの所有者名');  
+     MySQL データベースのパスワード  
+     define('DB_PASSWORD', 'password_here');  
+       ↓  
+     define('DB_PASSWORD', 'mysqlで作ったデータベースの所有者名のパスワード');  
+   7 自分のIPアドレス/wp-admin/install.phpにアクセス  
+
+##2-4 ベンチマーク
+
 

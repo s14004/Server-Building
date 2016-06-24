@@ -158,16 +158,16 @@
      $sudo make install  
   5 Apacheを起動
     `$sudo /usr/local/apache2/bin/apachectl start`  
-     エラーが出るので  
-    　$sudo vi /usr/local/apache2/conf/httpd.conf　ファイルに下記を追加  
-     ServerName www.example.com:80の下に  
-     ServerName localhost:80を追加する  
-     <IfModule dir_module>  
+      エラーが出るので  
+    　 $sudo vi /usr/local/apache2/conf/httpd.conf　ファイルに下記を追加  
+      ServerName www.example.com:80の下に  
+      ServerName localhost:80を追加する  
+     `<IfModule dir_module>  
          DirectoryIndex index.html index.php ←index.phpを追加  
-     </IfModule>  
-     <FilesMatch "\.ph(p[2-6]?|tml)$">  
+      </IfModule>`  
+     `<FilesMatch "\.ph(p[2-6]?|tml)$">  
          SetHandler application/x-httpd-php
-     </FilesMatch>  
+      </FilesMatch>`  
      追記したら  
      sudo /usr/local/apache2/bin/apachectl restart で再起動する  
 

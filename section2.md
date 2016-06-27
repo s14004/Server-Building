@@ -174,7 +174,7 @@
 ##2-3 phpのインストール
   1 `$wget http://jp2.php.net/get/php-7.0.6.tar.bz2/from/this/mirror`  
   2 `$tar -xvf mirrorで解凍`  
-  3 `$cd php-7.0.6/で移動`
+  3 `$cd php-7.0.6/で移動`  
   4 `$sudo yum install -y libxml2 libxml2-devel`  
     上をやったら  
     `$./configure --with-apxs2=/usr/local/apache2/bin/apxs --with-mysqli`  
@@ -217,6 +217,8 @@
      define('DB_PASSWORD', 'password_here');  
        ↓  
      define('DB_PASSWORD', 'mysqlで作ったデータベースの所有者名のパスワード');  
+	 /** MySQL hostname */
+	 define('DB_HOST', '127.0.0.1');  
    7 自分のIPアドレス/wp-admin/install.phpにアクセス  
 
 ##2-4 ベンチマーク

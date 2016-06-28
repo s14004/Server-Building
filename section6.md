@@ -44,8 +44,6 @@
 ## ansible実行
 `$ansible-playbook 実行したいファイル -i hosts  --private-key ~/.aws/n14011.pem`
 
-   [section6_ansible](section6_ansible)
-
 # 6-2 AWS EC2(AMIMOTO)
 
     1 Amazon web servicesにログインする  
